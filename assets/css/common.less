@@ -1,0 +1,265 @@
+html,
+body {
+  height: 100%;
+}
+
+#__nuxt,
+#__layout {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  color: #fff;
+  background: @colorSuccess;
+  text-shadow: none;
+}
+
+/*==== 电子书 章节链接样式 =====*/
+.ebook-chapter-link {
+  color: @colorTextSub;
+  &:hover {
+    color: @colorTextContent;
+  }
+}
+
+/*==== 电子书 目录链接样式 =====*/
+.ebook-catalog-link {
+  color: @colorTextTitle;
+  &:hover {
+    color: @colorError;
+  }
+}
+
+/*==== 电子书表格排序样式 =====*/
+.ebook-rank-index {
+  position: relative;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  color: #fff;
+  text-align: center;
+  background-color: @colorTextSub;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    height: 0;
+    width: 0;
+  }
+  &:before {
+    left: 0;
+    border-left: 9px solid @colorTextSub;
+    border-bottom: 3px solid transparent;
+  }
+  &:after {
+    right: 0;
+    border-right: 9px solid @colorTextSub;
+    border-bottom: 3px solid transparent;
+  }
+}
+
+.ebook-rank-index-0 {
+  background-color: @colorError;
+  &:before {
+    border-left: 9px solid @colorError;
+  }
+  &:after {
+    right: 0;
+    border-right: 9px solid @colorError;
+  }
+}
+.ebook-rank-index-1 {
+  background-color: average(@colorError, @colorWarning);
+  &:before {
+    border-left: 9px solid average(@colorError, @colorWarning);
+  }
+  &:after {
+    right: 0;
+    border-right: 9px solid average(@colorError, @colorWarning);
+  }
+}
+.ebook-rank-index-2 {
+  background-color: @colorWarning;
+  &:before {
+    border-left: 9px solid @colorWarning;
+  }
+  &:after {
+    right: 0;
+    border-right: 9px solid @colorWarning;
+  }
+}
+
+/*==== 输入框统一样式 =====*/
+input.common-input {
+  width: 100%;
+  outline: none;
+  margin: 5px 0;
+  padding: 0 10px;
+  line-height: 40px;
+  height: 40px;
+  font-size: 14px;
+  background-color: @colorBgBody;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+
+input.common-input:hover {
+  background-color: lighten(@colorBgBody, 2%);
+}
+
+input.common-input:focus {
+  border-color: @colorInfo;
+}
+
+textarea.common-textarea {
+  width: 100%;
+  outline: none;
+  margin: 5px 0;
+  padding: 10px;
+  font-size: 14px;
+  background-color: @colorBgBody;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  min-height: 40px;
+  min-height: 100px;
+}
+
+textarea.common-textarea:hover {
+  background-color: lighten(@colorBgBody, 2%);
+}
+
+textarea.common-textarea:focus {
+  border-color: @colorInfo;
+}
+
+code {
+  color: #c7254e;
+}
+/*==== 确实背景图样式 =====*/
+.no-img-placeholder,
+.no-img-placeholder-colorful {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #fafafa;
+}
+.no-img-placeholder {
+ // background-image: url('../images/no-data-bg.png');
+}
+.no-img-placeholder-colorful {
+ // background-image: url('../images/no-data-bg-colorful.png');
+}
+.no-img-placeholder-horizon {
+  background-size: auto 90%;
+}
+.no-img-placeholder-vertical {
+  background-size: 80% auto;
+}
+
+/*==== 文字居中 =====*/
+.text-center {
+  text-align: center;
+}
+
+/*==== 右浮动 =====*/
+.fr {
+  float: right;
+}
+
+/*==== 左浮动 =====*/
+.fl {
+  float: left;
+}
+
+/*==== 清除浮动 =====*/
+.clearfix:after {
+  content: '';
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear: both;
+}
+
+/*==== 无限旋转 =====*/
+.z-load-loop {
+  -webkit-animation: ani-load-loop 1s linear infinite;
+  animation: ani-load-loop 1s linear infinite;
+}
+
+@-webkit-keyframes ani-load-loop {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  to {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes ani-load-loop {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  to {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}
+.markdown-body {
+  ul,
+  ol {
+    list-style: disc;
+  }
+  pre {
+    background-image: linear-gradient(0deg,transparent 24%,rgba(201,195,195,.329) 25%,hsla(0,8%,80.4%,.05) 26%,transparent 27%,transparent 74%,hsla(0,5.2%,81%,.185) 75%,rgba(180,176,176,.05) 76%,transparent 77%,transparent),linear-gradient(90deg,transparent 24%,rgba(204,196,196,.226) 25%,hsla(0,4%,66.1%,.05) 26%,transparent 27%,transparent 74%,hsla(0,5.2%,81%,.185) 75%,rgba(180,176,176,.05) 76%,transparent 77%,transparent);
+    background-size: 50px 50px;
+    box-shadow: 0px 0px 1px #999;
+  }
+}
+.go-top-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  right: -60px;
+  bottom: 30px;
+  background-color: rgba(70,70,70,.75);
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+  z-index: 100;
+  cursor: pointer;
+  transition: all .36s ease-in-out;
+  opacity: 0;
+  i {
+    font-size: 22px;
+    color: #fff;
+  }
+  &.shown {
+    transform: scale(1) rotate(-1turn) translate(0);
+    right: 30px;
+    opacity: 1;
+  }
+  &:hover {
+    background: @colorCol;
+  }
+}
